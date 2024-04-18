@@ -5,6 +5,7 @@ import { AcademicSemester } from "@prisma/client";
 import httpStatus from "http-status";
 import catchAsync from "../../../shared/catchAsync";
 import pick from "../../../shared/pick";
+import { AcademicSemesterFiterableFields } from "./academicSemester.constant";
 
 const insertIntoDB = catchAsync(async(req: Request, res: Response) => {
     const result = await AcademicSemesterService.insertIntoDB(req.body);
@@ -17,7 +18,7 @@ const insertIntoDB = catchAsync(async(req: Request, res: Response) => {
 })
 
 const getAllFromDB = catchAsync(async(req: Request, res: Response) => {
-    const filters = pick(req.query, ['searchTerm', 'code', 'year'])
+    const filters = pick(req.query, AcademicSemesterFiterableFields)
     const options = pick(req.query, ['limit', 'page', 'sortBy', 'sortOrder'])
     const result = await AcademicSemesterService.getAllFromDB(filters, options);
     sendResponse(res, {
@@ -29,7 +30,18 @@ const getAllFromDB = catchAsync(async(req: Request, res: Response) => {
     })
 }) 
 
+const getDataById = catchAsync(async(req: Request, res: Response) => {
+    const result = await AcademicSemesterService.getDataById(req.params.id)
+    sendResponse(res, {
+        statusCode: httpStatus.OK,
+        success: true,
+        message: "Academis Semester data fetched!!",
+        data: result
+    })
+} )
+
 export const AcademicSemesterController = {
     insertIntoDB,
-    getAllFromDB
+    getAllFromDB,
+    getDataById
 }
