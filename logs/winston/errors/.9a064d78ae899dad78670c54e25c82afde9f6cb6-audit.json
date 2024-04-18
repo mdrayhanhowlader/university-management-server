@@ -19,6 +19,11 @@
             "date": 1713427471494,
             "name": "D:\\Web Programming Hero Level Two\\database\\university-management-core-service-starter\\logs\\winston\\errors\\phu-2024-18-04-16-error.log",
             "hash": "9880ded420d6b2d47e5ec8e16c49276eb3683a8bc94cba535d665ba5bf6c5a0b"
+        },
+        {
+            "date": 1713431128604,
+            "name": "D:\\Web Programming Hero Level Two\\database\\university-management-core-service-starter\\logs\\winston\\errors\\phu-2024-18-04-17-error.log",
+            "hash": "af8136df015aeb8288e0823d654d44652cd2f955ff13dab4a7acb79ad20e5d54"
         }
     ],
     "hashType": "sha256"
